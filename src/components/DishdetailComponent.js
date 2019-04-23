@@ -21,15 +21,15 @@ class Dishdetail extends Component {
 
 	renderComments(comments){
 		if (comments != null){
-			this.comment_list = comments.map((comment,key) => 
+			const comment_list = comments.map((comment,key) => 
 				<li>
-					{comment.comment}<br/>
-					-- {comment.author}, {comment.date}
+					<p>{comment.comment}</p>
+					<p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year:'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
 				</li>
 			);
 			return(
 				<ul className="list-unstyled">
-					{this.comment_list}
+					{comment_list}
 				</ul>
 			);
 		} else {
