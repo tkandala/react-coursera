@@ -7,6 +7,14 @@ class Dishdetail extends Component {
 		super(props);
 	}
 
+	componentDidMount(){
+		console.log('DishDetail Component componentDidMount invoked');
+	}
+
+	componentDidUpdate(){
+		console.log('DishDetail Component componentDidUpdate invoked');
+	}
+
 	renderDish(dish){
 		return(
 			<Card>
@@ -22,7 +30,7 @@ class Dishdetail extends Component {
 	renderComments(comments){
 		if (comments != null){
 			const comment_list = comments.map((comment,key) => 
-				<li>
+				<li key={comment.id}>
 					<p>{comment.comment}</p>
 					<p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year:'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
 				</li>
@@ -40,6 +48,7 @@ class Dishdetail extends Component {
 	}
 
 	render(){
+		console.log('DishDetail Component render invoked');
 		const dish = this.props.dish;
 		if (dish != null){
 	  		return (

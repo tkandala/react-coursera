@@ -21,7 +21,16 @@ class Main extends Component {
     });
   }
 
+  componentDidUpdate(){
+    console.log("Main component componentDidUpdate invoked");
+  }
+
+  componentWillUpdate(){
+    console.log("Main component componentWillUpdate invoked");
+  }
+
   render() {
+    console.log("Main component render invoked");
     return (
       <div>
         <Navbar dark color="primary">
